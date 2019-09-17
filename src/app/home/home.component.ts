@@ -5,8 +5,8 @@ import { AuthenticationService } from '../services/authentication.service';
 import { UserService } from '../services/user.service';
 
 @Component({
-     templateUrl: 'home.component.html'
-     })
+    templateUrl: 'home.component.html'
+})
 export class HomeComponent implements OnInit {
     currentUser: User;
     users = [];
@@ -34,4 +34,3 @@ export class HomeComponent implements OnInit {
             .subscribe(users => this.users = users);
     }
 }
- 

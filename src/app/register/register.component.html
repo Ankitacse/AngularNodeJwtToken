@@ -2,32 +2,51 @@
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
         <label for="firstName">First Name</label>
-        <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
-        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-            <div *ngIf="f.firstName.errors.required">First Name is required</div>
+        <input type="text" formControlName="firstName" class="form-control" #firstName />
+        <!--error codes  start-->
+        <div *ngIf="registerForm.controls['firstName'].invalid && (registerForm.controls['firstName'].dirty || registerForm.controls['firstName'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="registerForm.controls['firstName'].errors.required">
+                FirstName is required.
+            </div>
         </div>
+        <!-- error codes ends -->
     </div>
     <div class="form-group">
         <label for="lastName">Last Name</label>
-        <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
-        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+        <input type="text" formControlName="lastName" class="form-control" #lastName />
+        <!-- error codes start-->
+        <div *ngIf="registerForm.controls['lastName'].invalid && (registerForm.controls['lastName'].dirty || registerForm.controls['lastName'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="registerForm.controls['lastName'].errors.required">
+                Last name is required.
+            </div>
         </div>
+        <!-- error codes ends -->
     </div>
     <div class="form-group">
         <label for="username">Username</label>
-        <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-            <div *ngIf="f.username.errors.required">Username is required</div>
+        <input type="text" formControlName="username" class="form-control" #username />
+        <!--error codes  start-->
+        <div *ngIf="registerForm.controls['username'].invalid && (registerForm.controls['username'].dirty || registerForm.controls['username'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="registerForm.controls['username'].errors.required">
+                User name is required.
+            </div>
         </div>
+        <!-- error codes ends -->
     </div>
     <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">Password is required</div>
-            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+        <input type="password" formControlName="password" class="form-control" #password/>
+        <!--error codes  start-->
+        <div *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="registerForm.controls['password'].errors.required">
+                password is required.
+            </div>
         </div>
+        <!-- error codes ends -->
     </div>
     <div class="form-group">
         <button [disabled]="loading" class="btn btn-primary">
@@ -37,5 +56,3 @@
         <a routerLink="/login" class="btn btn-link">Cancel</a>
     </div>
 </form>
-Back to top
- 

@@ -15,7 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { JwtInterceptor } from './helpers/jwt.interceptors';
 import { ErrorInterceptor } from './helpers/error.interceptors';
-import { fakeBackendProvider } from './helpers/fake-backend';
+
 
 
 
@@ -39,8 +39,6 @@ import { fakeBackendProvider } from './helpers/fake-backend';
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
-    // provider used to create fake backend
-    fakeBackendProvider
   ],
   bootstrap: [AppComponent]
 })
